@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greatest Travel App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <main class="app-shell">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">Welcome, superstar traveler!</p>
+          <h1>Greatest Travel App</h1>
+          <p class="hero-copy">
+            Pick a city, learn cool facts, check the weather, and level up every
+            2 months you use the app.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="open-signup">Sign up to start</button>
+            <button class="secondary-button" id="next-level-button">See better versions</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="pixel-frame">
+            <div class="pixel-sun"></div>
+            <div class="pixel-cloud pixel-cloud-one"></div>
+            <div class="pixel-cloud pixel-cloud-two"></div>
+            <div class="pixel-mountain back"></div>
+            <div class="pixel-mountain front"></div>
+            <div class="pixel-forest"></div>
+            <div class="pixel-water"></div>
+            <div class="pixel-boat"></div>
+          </div>
+          <p class="art-label">Detailed pixel postcard</p>
+        </div>
+      </header>
+
+      <section class="signup card" id="signup-card">
+        <div>
+          <h2>Traveler sign up</h2>
+          <p>Tell us a little about you so the trip board feels magical.</p>
+        </div>
+        <form id="signup-form" class="signup-form">
+          <label>
+            First name
+            <input type="text" id="first-name" placeholder="Ava" required />
+          </label>
+          <label>
+            Last name
+            <input type="text" id="last-name" placeholder="Rivera" required />
+          </label>
+          <label>
+            Time region
+            <select id="time-region" required>
+              <option value="">Choose one</option>
+              <option>Morning traveler</option>
+              <option>Afternoon adventurer</option>
+              <option>Night explorer</option>
+            </select>
+          </label>
+          <label>
+            Weather unit
+            <select id="temp-unit" required>
+              <option value="">Choose one</option>
+              <option value="C">Celsius</option>
+              <option value="F">Fahrenheit</option>
+            </select>
+          </label>
+          <button type="submit" class="primary-button">Save my traveler card</button>
+        </form>
+        <p id="signup-message" class="signup-message" aria-live="polite"></p>
+      </section>
+
+      <section class="level-panel card">
+        <div>
+          <p class="eyebrow">Adventure level</p>
+          <h2 id="level-title">Level 1: Starter Scout</h2>
+          <p id="level-copy">
+            Use the app for 2 months to unlock more facts, more travel ideas,
+            and bigger explorer powers.
+          </p>
+        </div>
+        <div class="level-controls">
+          <label for="months-used">How long have you used it?</label>
+          <input id="months-used" type="range" min="0" max="12" value="0" step="2" />
+          <p><span id="months-value">0</span> months used</p>
+        </div>
+      </section>
+
+      <section class="city-browser">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Choose a destination</p>
+            <h2>Travel board</h2>
+          </div>
+          <label class="city-picker">
+            City
+            <select id="city-select"></select>
+          </label>
+        </div>
+
+        <article class="destination card">
+          <div class="destination-header">
+            <div>
+              <h3 id="city-name">Tokyo, Japan</h3>
+              <p id="city-tagline">Neon lights, peaceful gardens, and noodle adventures.</p>
+            </div>
+            <div class="weather-pill">
+              <span id="weather-emoji">☀️</span>
+              <span id="weather-text">Sunny 24°C</span>
+            </div>
+          </div>
+
+          <div class="destination-grid">
+            <div class="pixel-card">
+              <div class="city-art" id="city-art" aria-label="Pixel art scene"></div>
+            </div>
+
+            <div class="details-column">
+              <div class="mini-card">
+                <h4>About this place</h4>
+                <p id="city-description"></p>
+              </div>
+              <div class="mini-card">
+                <h4>Helpful links</h4>
+                <div class="link-list">
+                  <a id="hotel-link" target="_blank" rel="noreferrer">Find a hotel</a>
+                  <a id="flight-link" target="_blank" rel="noreferrer">Find a flight</a>
+                  <a id="car-link" target="_blank" rel="noreferrer">Find a rental car</a>
+                </div>
+              </div>
+              <div class="mini-card">
+                <h4>Level-up info</h4>
+                <ul id="level-facts"></ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <button id="earth-button" class="earth-button" aria-label="Show three facts about this place">
+      🌍🙂
+    </button>
+
+    <dialog id="facts-dialog" class="facts-dialog">
+      <div class="dialog-header">
+        <h2>Planet facts</h2>
+        <button id="close-dialog" class="icon-button" aria-label="Close facts">✕</button>
+      </div>
+      <p>Here are 3 cool facts about <span id="facts-city-name"></span>:</p>
+      <ol id="facts-list"></ol>
+    </dialog>
+
+    <section class="quiz card">
+      <h2>Questions for you</h2>
+      <p>
+        1. Which city do you want me to add next?<br />
+        2. Should the next version have a map or a packing list?<br />
+        3. Do you want more weather emojis or more facts?
+      </p>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
